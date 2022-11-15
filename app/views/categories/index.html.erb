@@ -1,13 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Categories</h1>
 
 <div id="categories">
   <% @categories.each do |category| %>
+   <%= link_to category_occurrences_path(category) do %>
     <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
+    <p>Total amount: $ <span><%= category.occurrences.sum(:amount) %></span></p>
+  <% end %>
   <% end %>
 </div>
 
