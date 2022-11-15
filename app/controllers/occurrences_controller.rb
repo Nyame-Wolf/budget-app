@@ -1,9 +1,13 @@
 class OccurrencesController < ApplicationController
   before_action :set_occurrence, only: %i[show edit update destroy]
+  before_action :set_category
+  before_action :authenticate_user!
 
   # GET /occurrences or /occurrences.json
   def index
-    @occurrences = Occurrence.all
+    @occurrences = @category.occurrences.order(created_at: :desc)
+
+    # @occurrences = Occurrence.all
   end
 
   # GET /occurrences/1 or /occurrences/1.json
@@ -11,7 +15,8 @@ class OccurrencesController < ApplicationController
 
   # GET /occurrences/new
   def new
-    @occurrence = Occurrence.new
+    # @occurrence = Occurrence.new
+    @occurrence = current_user.occurrences.build
   end
 
   # GET /occurrences/1/edit
@@ -19,11 +24,12 @@ class OccurrencesController < ApplicationController
 
   # POST /occurrences or /occurrences.json
   def create
-    @occurrence = Occurrence.new(occurrence_params)
-
+    # @occurrence = Occurrence.new(occurrence_params)
+    @occurrence = current_user.occurrences.build(occurrence_params)
+    @occurrence.categories << @category
     respond_to do |format|
       if @occurrence.save
-        format.html { redirect_to occurrence_url(@occurrence), notice: 'Occurrence was successfully created.' }
+        format.html { redirect_to category_occurrences_path(@category), notice: 'Occurrence was successfully created.' }
         format.json { render :show, status: :created, location: @occurrence }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -60,6 +66,10 @@ class OccurrencesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_occurrence
     @occurrence = Occurrence.find(params[:id])
+  end
+
+  def set_category
+    @category = Category.find(params[:category_id])
   end
 
   # Only allow a list of trusted parameters through.
