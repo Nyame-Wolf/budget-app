@@ -1,14 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<%=render "layouts/header", title: "Occurrences"%>
 
-<h1>Occurrences</h1>
-
+<div class="categories-container">
 <div id="occurrences">
-  <% @occurrences.each do |occurrence| %>
+  <% @category.occurrences.each do |occurrence| %>
     <%= render occurrence %>
     <p>
-      <%= link_to "Show this occurrence", occurrence %>
+      <%#= link_to "Show this occurrence", occurrence %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New occurrence", new_occurrence_path %>
+<div>
+<%= link_to "New occurrence", new_category_occurrence_path(@category), class:"new-btn" %>
+<%= link_to "Home", categories_path, class:"new-btn" %>
+</div>
+</div>
