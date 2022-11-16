@@ -7,9 +7,14 @@
       <%= render category %>
       <p>Total <span><%= number_to_currency(category.occurrences.sum(:amount)) %></span></p>
     <% end %>
+   
+  
+    
      <div class="links">
-        <%= link_to "Edit ", edit_category_path(category) %> |
-        <%= button_to "Delete", category, method: :delete %>
+        <% if can? :manage, category %>
+          <%= link_to "Edit ", edit_category_path(category) %> |
+          <%= button_to "Delete", category, method: :delete %>
+        <% end %>
       </div>
       </div>
   <% end %>

@@ -42,7 +42,7 @@ class OccurrencesController < ApplicationController
   def update
     respond_to do |format|
       if @occurrence.update(occurrence_params)
-        format.html { redirect_to occurrence_url(@occurrence), notice: 'Occurrence was successfully updated.' }
+        format.html { redirect_to category_occurrence_path(@category,@occurrence), notice: 'Occurrence was successfully updated.' }
         format.json { render :show, status: :ok, location: @occurrence }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class OccurrencesController < ApplicationController
     @occurrence.destroy
 
     respond_to do |format|
-      format.html { redirect_to occurrences_url, notice: 'Occurrence was successfully destroyed.' }
+      format.html { redirect_to category_occurrences_url, notice: 'Occurrence was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
