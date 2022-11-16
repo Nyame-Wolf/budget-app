@@ -1,6 +1,7 @@
 <header>
 <nav>
 <%=image_tag("icons8-hamburger-32", alt: "Hamburger icon")%>
+<%= title %>
 <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'sign-out' %>
 </nav>
 </header>
