@@ -1,4 +1,7 @@
-<h1>AppName</h1>
-
-<%= link_to 'Log In', new_user_session_path %>
-<%= link_to 'Sign Up', new_user_registration_path, class: 'sign-up' %>
+<div class="splash-screen">
+    <h1 class="circular-border">Budgetup</h1>
+    <div class="splash-btns">
+        <%= link_to 'LOG IN', new_user_session_path, class:"login-btn" %>
+        <%= link_to 'SIGN UP', new_user_registration_path, class: 'sign-up' %>
+    </div>
+</div>

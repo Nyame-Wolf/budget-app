@@ -1,12 +1,11 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
+<div id="<%= dom_id category %>" class="container">
 
-  <p>
-    <strong>Icon:</strong>
+ <p class="icon">
     <%= category.icon %>
   </p>
 
+  <p class="title">
+    <%= category.name.capitalize %>
+  </p>
+     
 </div>
