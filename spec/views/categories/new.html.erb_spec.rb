@@ -14,7 +14,7 @@ RSpec.describe 'categories/new', type: :view do
     assert_select 'form[action=?][method=?]', categories_path, 'post' do
       assert_select 'input[name=?]', 'category[name]'
 
-      assert_select 'input[name=?]', 'category[icon]'
+      assert_select 'select[name=?]', 'category[icon]'
     end
   end
 end

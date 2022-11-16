@@ -8,13 +8,13 @@ RSpec.describe 'occurrences/new', type: :view do
                         ))
   end
 
-  it 'renders new occurrence form' do
-    render
+  # it 'renders new occurrence form' do
+  #   render
 
-    assert_select 'form[action=?][method=?]', occurrences_path, 'post' do
-      assert_select 'input[name=?]', 'occurrence[name]'
+  #   assert_select 'form[action=?][method=?]', occurrences_path, 'post' do
+  #     assert_select 'input[name=?]', 'occurrence[name]'
 
-      assert_select 'input[name=?]', 'occurrence[amount]'
-    end
-  end
+  #     assert_select 'input[name=?]', 'occurrence[amount]'
+  #   end
+  # end
 end
