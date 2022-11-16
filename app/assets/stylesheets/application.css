@@ -13,3 +13,200 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main: #3778c2;
+  --main-btn: #5fb523;
+  --main-txt: #434b54;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: #434b54;
+}
+
+main {
+  background-color: #d3d3d3;
+  height: 100vh;
+  color: #434b54;
+}
+
+header {
+  height: 70px;
+  background: #3778c2;
+  color: #fff;
+}
+
+main,
+header {
+  width: 375px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.8rem;
+}
+
+#categories {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.occurence-link {
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category {
+  background-color: #fff;
+  padding: 0 20px;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+}
+
+.links button {
+  border: none;
+  background: none;
+  color: #551a8b;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.notice {
+  color: green;
+}
+
+.icon {
+  font-size: 3rem;
+  width: 70px;
+  text-align: center;
+  border: 1px solid #000;
+  background: #f8f8ff;
+}
+
+.new-btn {
+  padding: 10px;
+  border: 1px solid #666;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  width: 140px;
+  background-color: var(--main-btn);
+}
+
+a {
+  text-decoration: none;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 20px;
+}
+
+#occurrences {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.occurrence-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  background: #fff;
+}
+
+.occurencep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.splash-screen {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.circular-border {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.splash-btns {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.login-btn {
+  padding: 10px;
+  border: 1px solid #666;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  width: 300px;
+  background-color: var(--main);
+}
+
+#new_user {
+  padding: 10px 0 0 0;
+}
+
+.new_user_input {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid;
+}
+
+.sign-out {
+  background: none;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+}

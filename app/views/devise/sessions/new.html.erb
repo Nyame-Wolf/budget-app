@@ -1,14 +1,12 @@
-<h2>Log in</h2>
+<%=render "layouts/login", title: "Log in"%>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"new_user_input" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder:"Password", class:"new_user_input" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
