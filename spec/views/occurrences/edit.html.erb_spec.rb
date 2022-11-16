@@ -1,10 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe 'occurrences/edit', type: :view do
+  before(:each) do
+    @user = User.new(name: 'Mumenya Nyamu', email: 'success@example.com', password: 'password',
+                     password_confirmation: 'password')
+    @user.skip_confirmation!
+    @user.save
+    sign_in @user
+    @category = Category.create!(name: 'Game', icon: '🎲', user: @user)
+  end
   let(:occurrence) do
     Occurrence.create!(
       name: 'MyString',
-      amount: 1
+      amount: 1,
+      user: @user,
+      categories: [@category]
     )
   end
 
@@ -15,7 +25,7 @@ RSpec.describe 'occurrences/edit', type: :view do
   it 'renders the edit occurrence form' do
     render
 
-    assert_select 'form[action=?][method=?]', occurrence_path(occurrence), 'post' do
+    assert_select 'form[action=?][method=?]', category_occurrence_path(@category, occurrence), 'post' do
       assert_select 'input[name=?]', 'occurrence[name]'
 
       assert_select 'input[name=?]', 'occurrence[amount]'

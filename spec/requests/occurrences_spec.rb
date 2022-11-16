@@ -16,18 +16,36 @@ RSpec.describe '/occurrences', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Occurrence. As you add validations to Occurrence, be sure to
   # adjust the attributes here as well.
+  before(:each) do
+    @user = User.new(name: 'Mumenya Nyamu', email: 'success@example.com', password: 'password',
+                     password_confirmation: 'password')
+    @user.skip_confirmation!
+    @user.save
+    sign_in @user
+    @category = Category.create!(name: 'Game', icon: '🎲', user: @user)
+  end
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    {
+      name: 'Football',
+      amount: 300,
+      user: @user,
+      categories: [@category]
+    }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    {
+      name: nil,
+      amount: nil,
+      user: @user,
+      categories: []
+    }
   end
 
   describe 'GET /index' do
     it 'renders a successful response' do
       Occurrence.create! valid_attributes
-      get occurrences_url
+      get category_occurrences_url(@category)
       expect(response).to be_successful
     end
   end
@@ -35,14 +53,14 @@ RSpec.describe '/occurrences', type: :request do
   describe 'GET /show' do
     it 'renders a successful response' do
       occurrence = Occurrence.create! valid_attributes
-      get occurrence_url(occurrence)
+      get category_occurrence_url(@category, occurrence)
       expect(response).to be_successful
     end
   end
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_occurrence_url
+      get new_category_occurrence_url(@category)
       expect(response).to be_successful
     end
   end
@@ -50,7 +68,7 @@ RSpec.describe '/occurrences', type: :request do
   describe 'GET /edit' do
     it 'renders a successful response' do
       occurrence = Occurrence.create! valid_attributes
-      get edit_occurrence_url(occurrence)
+      get edit_category_occurrence_url(@category, occurrence)
       expect(response).to be_successful
     end
   end
@@ -59,25 +77,25 @@ RSpec.describe '/occurrences', type: :request do
     context 'with valid parameters' do
       it 'creates a new Occurrence' do
         expect do
-          post occurrences_url, params: { occurrence: valid_attributes }
+          post category_occurrences_url(@category), params: { occurrence: valid_attributes }
         end.to change(Occurrence, :count).by(1)
       end
 
       it 'redirects to the created occurrence' do
-        post occurrences_url, params: { occurrence: valid_attributes }
-        expect(response).to redirect_to(occurrence_url(Occurrence.last))
+        post category_occurrences_url(@category), params: { occurrence: valid_attributes }
+        expect(response).to redirect_to(category_occurrences_url(@category))
       end
     end
 
     context 'with invalid parameters' do
       it 'does not create a new Occurrence' do
         expect do
-          post occurrences_url, params: { occurrence: invalid_attributes }
+          post category_occurrences_url(@category), params: { occurrence: invalid_attributes }
         end.to change(Occurrence, :count).by(0)
       end
 
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post occurrences_url, params: { occurrence: invalid_attributes }
+        post category_occurrences_url(@category), params: { occurrence: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -86,28 +104,34 @@ RSpec.describe '/occurrences', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        {
+          name: 'Soccer',
+          amount: 100,
+          user: @user,
+          categories: [@category]
+        }
       end
 
       it 'updates the requested occurrence' do
         occurrence = Occurrence.create! valid_attributes
-        patch occurrence_url(occurrence), params: { occurrence: new_attributes }
+        patch category_occurrence_url(@category, occurrence), params: { occurrence: new_attributes }
         occurrence.reload
-        skip('Add assertions for updated state')
+        expect(occurrence.attributes).to include({ 'name' => 'Soccer' })
+        expect(occurrence.attributes).to include({ 'amount' => 100 })
       end
 
       it 'redirects to the occurrence' do
         occurrence = Occurrence.create! valid_attributes
-        patch occurrence_url(occurrence), params: { occurrence: new_attributes }
+        patch category_occurrence_url(@category, occurrence), params: { occurrence: new_attributes }
         occurrence.reload
-        expect(response).to redirect_to(occurrence_url(occurrence))
+        expect(response).to redirect_to(category_occurrences_url(@category))
       end
     end
 
     context 'with invalid parameters' do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         occurrence = Occurrence.create! valid_attributes
-        patch occurrence_url(occurrence), params: { occurrence: invalid_attributes }
+        patch category_occurrence_url(@category, occurrence), params: { occurrence: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -117,14 +141,14 @@ RSpec.describe '/occurrences', type: :request do
     it 'destroys the requested occurrence' do
       occurrence = Occurrence.create! valid_attributes
       expect do
-        delete occurrence_url(occurrence)
+        delete category_occurrence_url(@category, occurrence)
       end.to change(Occurrence, :count).by(-1)
     end
 
     it 'redirects to the occurrences list' do
       occurrence = Occurrence.create! valid_attributes
-      delete occurrence_url(occurrence)
-      expect(response).to redirect_to(occurrences_url)
+      delete category_occurrence_url(@category, occurrence)
+      expect(response).to redirect_to(category_occurrences_url(@category))
     end
   end
 end
