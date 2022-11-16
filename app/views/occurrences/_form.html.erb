@@ -1,4 +1,4 @@
-<%= form_with(model: occurrence, url:category_occurrences_path(@category),) do |form| %>
+<%= form_with(model: occurrence, url:category_occurrences_path(@category, occurrence)) do |form| %>
   <% if occurrence.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(occurrence.errors.count, "error") %> prohibited this occurrence from being saved:</h2>

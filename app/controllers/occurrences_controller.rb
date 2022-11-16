@@ -42,7 +42,9 @@ class OccurrencesController < ApplicationController
   def update
     respond_to do |format|
       if @occurrence.update(occurrence_params)
-        format.html { redirect_to category_occurrence_path(@category,@occurrence), notice: 'Occurrence was successfully updated.' }
+        format.html do
+          redirect_to category_occurrence_path(@category, @occurrence), notice: 'Occurrence was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @occurrence }
       else
         format.html { render :edit, status: :unprocessable_entity }

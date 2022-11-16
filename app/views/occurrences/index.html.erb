@@ -3,7 +3,9 @@
 <div class="categories-container">
 <div id="occurrences">
   <% @category.occurrences.each do |occurrence| %>
+  <%= link_to category_occurrence_path(@category, occurrence) do %>
     <%= render occurrence %>
+    <% end %>
     <p>
       <%#= link_to "Show this occurrence", occurrence %>
     </p>
