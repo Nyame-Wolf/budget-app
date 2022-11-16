@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Occurrences", type: :feature do
-    before(:each) do
+RSpec.feature 'Occurrences', type: :feature do
+  before(:each) do
     @user = User.new(name: 'Mumenya Nyamu', email: 'success@example.com', password: 'password',
                      password_confirmation: 'password')
     @user.skip_confirmation!
@@ -22,7 +22,7 @@ RSpec.feature "Occurrences", type: :feature do
     click_button 'Create Occurrence'
     expect(page).to have_content 'Occurrence was successfully created.'
   end
-   it 'It goes back to home' do
+  it 'It goes back to home' do
     visit "categories/#{@category.id}/occurrences"
     click_link 'New occurrence'
     fill_in 'occurrence_name', with: 'Football'
