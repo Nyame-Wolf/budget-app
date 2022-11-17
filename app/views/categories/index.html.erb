@@ -1,0 +1,24 @@
+<%=render "layouts/header", title: "Categories"%>
+<div class="categories-container">
+<div id="categories">
+  <% @categories.each do |category| %>
+  <div class="category">
+    <%= link_to category_occurrences_path(category), class:"occurence-link" do %>
+      <%= render category %>
+      <p>Total <span><%= number_to_currency(category.occurrences.sum(:amount)) %></span></p>
+    <% end %>
+   
+  
+    
+     <div class="links">
+        <% if can? :manage, category %>
+          <%= link_to "Edit ", edit_category_path(category) %> |
+          <%= button_to "Delete", category, method: :delete %>
+        <% end %>
+      </div>
+      </div>
+  <% end %>
+</div>
+
+<%= link_to "New category", new_category_path, class:"new-btn" %>
+</div>

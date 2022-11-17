@@ -1,0 +1,243 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+:root {
+  --main: #3778c2;
+  --main-btn: #5fb523;
+  --main-txt: #434b54;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: #434b54;
+}
+
+main {
+  background-color: #d3d3d3;
+  height: 100vh;
+  color: #434b54;
+}
+
+header {
+  height: 70px;
+  background: #3778c2;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.8rem;
+}
+
+#categories {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.occurence-link {
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category {
+  background-color: #fff;
+  padding: 0 20px;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+}
+
+.links button {
+  border: none;
+  background: none;
+  color: #551a8b;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.notice {
+  color: green;
+}
+
+.icon {
+  font-size: 3rem;
+  width: 70px;
+  text-align: center;
+  border: 1px solid #000;
+  background: #f8f8ff;
+}
+
+.new-btn {
+  padding: 10px;
+  border: 1px solid #666;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  width: 140px;
+  background-color: var(--main-btn);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--main-btn);
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 20px;
+}
+
+#occurrences {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.occurrence-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  background: #fff;
+}
+
+.occurencep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.splash-screen {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.circular-border {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.splash-btns {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+  padding: 20px;
+}
+
+.login-btn {
+  padding: 15px;
+  border: 1px solid #666;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  background-color: var(--main);
+}
+
+.sign-up {
+  padding: 15px;
+  border: 1px solid #666;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+#new_user {
+  padding: 10px 0 0 0;
+}
+
+.new_user_input {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid;
+}
+
+.sign-out {
+  background: none;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+}
+
+.devise-container {
+  padding-top: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.actions input {
+  padding: 5px;
+}
+
+.devise-container a {
+  color: #434b54;
+}
+
+.next-link {
+  color: #fff;
+}

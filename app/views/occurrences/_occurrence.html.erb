@@ -1,0 +1,15 @@
+<div id="<%= dom_id occurrence %>" class="occurrence-container">
+<p class="icon"><%= @category.icon%></p>
+  <div class="occurencep">
+    <p class="title"><%= occurrence.name.capitalize %></p>
+    <p><span><%= occurrence.created_at.strftime("%e %b %y") %></span></p>
+  </div>
+
+  <p>
+    <strong>price:</strong>
+    <%= number_to_currency(occurrence.amount) %>
+  </p>
+  
+
+</div>
+

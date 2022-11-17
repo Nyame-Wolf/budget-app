@@ -1,0 +1,11 @@
+<%=render "layouts/header", title: "Occurrence"%>
+<%= render @occurrence %>
+
+<div class="links">
+  <% if can? :manage, @occurrence %>
+    <%= link_to "Edit", edit_category_occurrence_path(@category, @occurrence) %> |
+    <%= button_to "Delete", category_occurrence_path(@category,@occurrence), method: :delete %> |
+  <% end %>
+  <%= link_to "Back to occurrences",  category_occurrences_path %>
+  
+</div>
