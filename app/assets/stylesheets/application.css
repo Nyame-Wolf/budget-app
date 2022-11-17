@@ -13,11 +13,14 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Proxima Nova', sans-serif;
 }
 
 :root {
@@ -42,11 +45,6 @@ header {
   height: 70px;
   background: #3778c2;
   color: #fff;
-}
-
-main,
-header {
-  width: 375px;
 }
 
 nav {
@@ -120,6 +118,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: var(--main-btn);
+}
+
 .categories-container {
   display: flex;
   flex-direction: column;
@@ -157,7 +159,7 @@ a {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
 }
 
@@ -179,18 +181,28 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   gap: 30px;
+  padding: 20px;
 }
 
 .login-btn {
-  padding: 10px;
+  padding: 15px;
   border: 1px solid #666;
   color: #fff;
-  text-decoration: none;
   border-radius: 5px;
   text-align: center;
-  width: 300px;
+  width: 100%;
   background-color: var(--main);
+}
+
+.sign-up {
+  padding: 15px;
+  border: 1px solid #666;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
 }
 
 #new_user {
@@ -209,4 +221,23 @@ a {
   color: #fff;
   font-size: 1rem;
   border: none;
+}
+
+.devise-container {
+  padding-top: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.actions input {
+  padding: 5px;
+}
+
+.devise-container a {
+  color: #434b54;
+}
+
+.next-link {
+  color: #fff;
 }
