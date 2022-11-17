@@ -7,7 +7,9 @@
 >This is a mobile budget app created using ruby on rails. It follows a [design](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=) idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella). The user can sign-up, sign-in, create categories and track expenditure on the different transactions.
 
 # Quick view
-
+![](./app/assets/images/splashscreen.png)
+![](./app/assets/images/categories.png)
+![](./app/assets/images/transactions.png)
 
 ## Built With
 
@@ -18,10 +20,13 @@
      - Integration : Capybara
 - IDE : vscode
 - Database : PostgressSQL
+- Template engine .erb
 - Linters:
      - CSS: Stylelint
      - Ruby: Rubocop
 
+## Entity relationship diagram for DB
+![](./app/assets/images/ERD.png)
 
 ## Live Demo
 [Live Demo Link](https://budgetup.onrender.com/)
@@ -73,6 +78,6 @@ Give a ⭐️ if you like this project!
 
 This project is [MIT](./LICENSE) licensed.
 
-## Entity relationship diagram for DB
+
 
 
