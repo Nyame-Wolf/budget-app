@@ -17,10 +17,9 @@ RSpec.describe '/occurrences', type: :request do
   # Occurrence. As you add validations to Occurrence, be sure to
   # adjust the attributes here as well.
   before(:each) do
-    @user = User.new(name: 'Mumenya Nyamu', email: 'success@example.com', password: 'password',
-                     password_confirmation: 'password')
-    @user.skip_confirmation!
-    @user.save
+    @user = User.create!(name: 'Mumenya Nyamu', email: 'success@example.com', password: 'password',
+                         password_confirmation: 'password')
+
     sign_in @user
     @category = Category.create!(name: 'Game', icon: '🎲', user: @user)
   end

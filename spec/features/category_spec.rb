@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'Categories', type: :feature do
   before(:each) do
-    @user = User.new(name: 'Mumenya Nyamu', email: 'success@example.com', password: 'password',
-                     password_confirmation: 'password')
-    @user.skip_confirmation!
-    @user.save
+    @user = User.create!(name: 'Mumenya Nyamu', email: 'success@example.com', password: 'password',
+                         password_confirmation: 'password')
     sign_in @user
   end
   it 'creates a category' do
